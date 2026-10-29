@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-10-29
 ---
 
 # Morning digest
@@ -77,3 +78,29 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+| # | Issue | Blocked by | Worker | Closed |
+|---|-------|------------|--------|--------|
+| [1](https://github.com/pizang/mega-s01e04-before-i-looked/issues/1) | Reader and shared types | — | omp · gpt-6.1-sol · auto | 2026-10-29 |
+| [2](https://github.com/pizang/mega-s01e04-before-i-looked/issues/2) | Digest HTML page | #1 contract | omp · gpt-6.1-sol · medium | 2026-10-29 |
+| [3](https://github.com/pizang/mega-s01e04-before-i-looked/issues/3) | Digest JSON endpoint | #1 contract | omp · gpt-6.1-sol · medium | 2026-10-29 |
+| [4](https://github.com/pizang/mega-s01e04-before-i-looked/issues/4) | Board links and event counts | #1 contract; #2 integration | omp · gpt-6.1-sol · medium | 2026-10-29 |
+| [5](https://github.com/pizang/mega-s01e04-before-i-looked/issues/5) | Digest route tests | #1 contract; #2, #3 integration | omp · gpt-6.1-sol · auto | 2026-10-29 |
+| [6](https://github.com/pizang/mega-s01e04-before-i-looked/issues/6) | Public review preview | #2, #3, #4, #5 | omp · gpt-6.1-sol · not recorded | 2026-10-29 |
+| [7](https://github.com/pizang/mega-s01e04-before-i-looked/issues/7) | Remove marker and archive plan | #6 review confirmation | omp · gpt-6.1-sol · not recorded | 2026-10-29 |
+
+All workers resolved to `openai-codex/gpt-6.1-sol`; the table does not imply cheaper-model routing.
+`auto` records the configured effort policy, not an unrecorded resolved level.
+The reader's shared contract was committed before the four section-2 workers started in separate worktrees.
+
+Issue #6 was reopened after premature closure. Its final closure followed explicit reviewer confirmation,
+not link submission. After separate human approval, the HTML was regenerated with `LANE_MARKER` unset
+and replaced at the same public URL. The public response matched the clean export exactly, showed
+“no marker set,” and contained no old lane marker. No preview HTML or `.env` was committed.
+
+Verification: 22 tests passed across three files; TypeScript checking passed. Chrome checks covered
+both board links, five sorted jobs, one bad line, null-owner display, retry/failure warnings,
+HTML/JSON agreement, preserved offsets, and no client scripts. Sample fixture SHA-256 hashes were unchanged.
+
