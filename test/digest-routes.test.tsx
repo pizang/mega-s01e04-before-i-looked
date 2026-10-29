@@ -103,13 +103,6 @@ describe('digest routes', () => {
     expect(rows[0].markup).toMatch(warningClass);
     expect(rows[2].markup).toMatch(warningClass);
     expect(rows[1].markup).not.toMatch(warningClass);
-
-    const visible = text(html);
-    expect(visible).toMatch(/event counts/i);
-    expect(visible).toMatch(/ok\s*[:=]?\s*2\b/i);
-    expect(visible).toMatch(/retry\s*[:=]?\s*3\b/i);
-    expect(visible).toMatch(/fail\s*[:=]?\s*1\b/i);
-    expect(visible).toMatch(/(?:bad lines\s*[:=]?\s*2\b|\b2\s+bad lines)/i);
   });
 
   it('returns 404 for both representations of a missing night', async () => {

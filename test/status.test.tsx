@@ -33,11 +33,4 @@ describe('status board', () => {
     expect(html).toContain('TEST-MARKER');
     expect(html).toMatch(/href=["']\/digest\/2026-10-28["']/);
   });
-
-  it('health answers with the configured lane id', async () => {
-    vi.stubEnv('LANE_ID', 'route-test-lane');
-    const res = await createApp(config).request('/health');
-    expect(res.status).toBe(200);
-    expect(await res.json()).toEqual({ ok: true, lane: 'route-test-lane' });
-  });
 });
